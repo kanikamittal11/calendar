@@ -28,25 +28,14 @@ export class CalendarHeader extends Component<HeaderProps> {
         for (let i = 0; i < numberOfDays; i += 1) {
             const date = dayjs(firstDay).add(i, 'd');
             const newCell = (
-                <div
-                    className="weekCalendar__headerColumn"
-                    key={i}
-                    style={{ minWidth: '81px', flex: 1 }}
-                >
+                <div key={i} style={{ minWidth: '81px', flex: 1 }}>
                     <HeaderCell date={date} />
                 </div>
             );
             weekdayColumns.push(newCell);
         }
 
-        return (
-            <div
-                className="weekCalendar__headerWrapper"
-                style={{ textAlign: 'center', display: 'flex' }}
-            >
-                {weekdayColumns}
-            </div>
-        );
+        return <div style={{ textAlign: 'center', display: 'flex' }}>{weekdayColumns}</div>;
     }
 }
 

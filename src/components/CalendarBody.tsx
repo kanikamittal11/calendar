@@ -39,10 +39,8 @@ class CalendarBody extends Component<ContentProps> {
         }
 
         return (
-            <ContainerStyled className="calendarBody">
-                <div className="calendarBody__row" style={{ display: 'flex' }}>
-                    {weekdayColumns}
-                </div>
+            <ContainerStyled>
+                <div style={{ display: 'flex' }}>{weekdayColumns}</div>
             </ContainerStyled>
         );
     }

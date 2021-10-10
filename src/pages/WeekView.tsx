@@ -177,38 +177,20 @@ class WeekView extends Component<WeekViewProps, WeekViewState> {
             this.props;
 
         return (
-            <div className="weekCalendar">
-                <div className="weekCalendar__scaleHeader">
+            <div>
+                <div>
                     <span>{scaleHeaderTitle}</span>
                 </div>
-                <div
-                    className="weekCalendar__header"
-                    style={{ paddingBottom: '16px', marginLeft: '38px' }}
-                >
+                <div style={{ paddingBottom: '16px', marginLeft: '38px' }}>
                     <CalendarHeader firstDay={firstDay} numberOfDays={numberOfDays} />
                 </div>
-                <div
-                    className="weekCalendar__scaleColumn"
-                    style={{
-                        display: 'flex',
-                        textAlign: 'right',
-                        zIndex: 2,
-                        position: 'absolute',
-                        paddingRight: '8px',
-                        backgroundColor: 'white',
-                    }}
-                >
-                    <ScaleColumn
-                        cellHeight={this.props.cellHeight}
-                        scaleFormat={scaleFormat}
-                        scaleIntervals={this.state.scaleIntervals}
-                        scaleUnit={this.props.scaleUnit}
-                    />
-                </div>
-                <div
-                    className="weekCalendar__content"
-                    style={{ position: 'relative', marginLeft: '38px' }}
-                >
+                <ScaleColumn
+                    cellHeight={this.props.cellHeight}
+                    scaleFormat={scaleFormat}
+                    scaleIntervals={this.state.scaleIntervals}
+                    scaleUnit={this.props.scaleUnit}
+                />
+                <div style={{ position: 'relative', marginLeft: '38px' }}>
                     <CalendarBody
                         cellHeight={cellHeight}
                         firstDay={firstDay}

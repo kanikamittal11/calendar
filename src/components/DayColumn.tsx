@@ -15,25 +15,22 @@ const DayColumnWrapper = styled.div`
     min-width: 81px;
 `;
 
+const DayCellWrapper = styled.div<{ height: number }>`
+    border-top: 1px solid #dadce0;
+    height: ${(props) => props.height}px;
+`;
+
 class DayColumn extends Component<DayColumnProps> {
     render() {
         const { cellHeight, colPos, dayIntervals } = this.props;
 
-        const dayCells = dayIntervals.map((interval, rowPos) => (
-            <div
-                className="calendarBody__cell"
-                key={rowPos}
-                style={{ borderTop: '1px solid #dadce0', height: cellHeight }}
-            >
+        const dayCells = dayIntervals.map((_, rowPos) => (
+            <DayCellWrapper height={cellHeight} key={rowPos}>
                 <DayCell />
-            </div>
+            </DayCellWrapper>
         ));
 
-        return (
-            <DayColumnWrapper className="calendarBody__column" data-colpos={colPos}>
-                {dayCells}
-            </DayColumnWrapper>
-        );
+        return <DayColumnWrapper data-colpos={colPos}>{dayCells}</DayColumnWrapper>;
     }
 }
 

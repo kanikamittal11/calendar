@@ -9,6 +9,14 @@ export interface ScaleColumnProps {
     cellHeight: number;
 }
 
+const ScaleContainer = styled.div`
+    display: flex;
+    text-align: right;
+    z-index: 2;
+    position: absolute;
+    padding-right: 8px;
+`;
+
 const ScaleCellWrapper = styled.div<{ cellHeight: number }>`
     height: ${(props) => props.cellHeight + 1 /** for border-bottom */}px;
 `;
@@ -40,11 +48,13 @@ class ScaleColumn extends Component<ScaleColumnProps> {
     render() {
         const { scaleIntervals } = this.props;
         return (
-            <div>
-                {scaleIntervals.map((scaleInterval, index) =>
-                    this.renderScaleCell(scaleInterval, index),
-                )}
-            </div>
+            <ScaleContainer>
+                <div>
+                    {scaleIntervals.map((scaleInterval, index) =>
+                        this.renderScaleCell(scaleInterval, index),
+                    )}
+                </div>
+            </ScaleContainer>
         );
     }
 }

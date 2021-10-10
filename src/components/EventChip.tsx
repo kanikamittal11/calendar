@@ -54,12 +54,8 @@ class EventChip extends React.PureComponent<EventProps> {
         const { dimensions, start, end, title } = this.props;
         const eventCompleted = end.isBefore(dayjs());
         return (
-            <EventContainer
-                className="weekCalendar__overlay"
-                inactive={eventCompleted}
-                style={dimensions}
-            >
-                <EventChipWrapper className="event" inactive={eventCompleted}>
+            <EventContainer inactive={eventCompleted} style={dimensions}>
+                <EventChipWrapper inactive={eventCompleted}>
                     <EventTitle>{title}</EventTitle>
                     <div>{`${start.format('h:mma')} - ${end.format('h:mma')}`}</div>
                 </EventChipWrapper>
